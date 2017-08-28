@@ -1,56 +1,84 @@
 import React from 'react';
-import { AppRegistry, View, Pano, asset, Text, Image, PointLight, Sphere, Box, Cylinder, Plane } from 'react-vr';
+import { AppRegistry, View, Pano, asset, Text, Image, PointLight, Sphere, Box, Cylinder, 
+        Plane, AmbientLight, DirectionalLight, SpotLight  } from 'react-vr';
 
 export default class App extends React.Component{
   render() {
     return(
       <View>
-        {/*<Sphere 
+        {/* <AmbientLight 
+          intensity={2}
           style={{
-            color: 'lightblue',
-            transform: [{ translateZ: -2 }]
+            color: 'brown'
           }}
-          lit
-          texture={asset('earth.jpg')}
-          heightSegments={20}
-          widthSegments={20}
         /> */}
 
-        {/*<Box 
-          wireframe
-          dimWidth={0.5}
-          dimHeight={0.5}
-          dimDepth={0.5}
+        {/* <DirectionalLight 
+          intensity={0.5}
           style={{
-            transform: [{ translateZ: -2 }]
+            transform: [{
+              translateX: -1000
+            }]
           }}
         />*/}
 
-     {/*   <Cylinder 
+        <SpotLight 
+          style={{
+            transform: [{
+              translateZ: -5
+            }]
+          }}
+        />
+        <Sphere
+          lit
+          style={{
+            color: 'yellow',
+            transform: [
+              { translate: [-1.5, 0, -4] }
+            ]
+          }}
+          heightSegments={20}
+          widthSegments={20}
+        /> 
+
+        <Box 
+          lit
+          wireframe
+          style={{
+            color: 'blue',
+            transform: [
+              { translate: [0, 0, -6] }
+            ]
+          }}
+        />
+
+        <Cylinder 
+          lit
           segments={20}
-          dimHeight={0.6}
-          radiusBottom={0.35}
           radiusTop={0}
           wireframe
           style={{
-            transform: [{ translateZ: -2}]
-          }}
-        />*/}
-
-        <Plane 
-          wireframe
-          dimWidth={0.5}
-          dimHeight={0.5}
-          style={{
-            transform: [{ translateZ: -2 }]
+            color: 'red',
+            transform: [
+              { translate: [1.5, 0, -4] }
+            ]
           }}
         />
-        <PointLight 
-          intensity = {1}
+
+        <Plane
+          lit
+          dimWidth={4}
+          dimHeight={4}
           style={{
-            transform: [{ translate: [0, 700, 700]}]
+            color: 'green',
+            transform: [
+              { translate: [0, -0.5, -5] },
+              { rotateX: -90 }
+            ]
           }}
-        />  
+        />
+
+
       </View>
     )
   }
