@@ -1,69 +1,56 @@
 import React from 'react';
-import { AppRegistry, View, Pano, asset, Text, Image } from 'react-vr';
+import { AppRegistry, View, Pano, asset, Text, Image, PointLight, Sphere, Box, Cylinder, Plane } from 'react-vr';
 
 export default class App extends React.Component{
   render() {
     return(
       <View>
-        <Pano source={asset('chess-world.jpg')} />
-        <View
+        {/*<Sphere 
           style={{
-            width: 2,
-            height: 2.4,
-            backgroundColor: 'white',
-            layoutOrigin: [0.5, 0.5],
-            transform: [{ translate: [0, 0,-3]}],
-            justifyContent: 'space-between'
+            color: 'lightblue',
+            transform: [{ translateZ: -2 }]
           }}
-        >
-          <Image 
-            source={asset('mountains.jpg')}
-            style={{
-              height: 1.2
-            }}
-          />
-          <Text
-            style={{
-              color: '#333',
-              fontSize: 0.16,
-              textAlign: 'center'
-            }}
-          >
-            Explore Austria with wonderful Ski
-          </Text>
-          <View 
-            style={{flexDirection: 'row'}}
-          >
-            <Image 
-              source={asset('mountains1.jpg')}
-              style={{
-                width: 0.5,
-                height: 0.5
-              }}
-            />
-              <Image 
-              source={asset('mountains2.jpg')}
-              style={{
-                width: 0.5,
-                height: 0.5
-              }}
-            />
-            <Image 
-              source={asset('mountains3.jpg')}
-              style={{
-                width: 0.5,
-                height: 0.5
-              }}
-            />
-            <Image 
-              source={asset('mountains4.jpg')}
-              style={{
-                width: 0.5,
-                height: 0.5
-              }}
-            />
-          </View>
-        </View>
+          lit
+          texture={asset('earth.jpg')}
+          heightSegments={20}
+          widthSegments={20}
+        /> */}
+
+        {/*<Box 
+          wireframe
+          dimWidth={0.5}
+          dimHeight={0.5}
+          dimDepth={0.5}
+          style={{
+            transform: [{ translateZ: -2 }]
+          }}
+        />*/}
+
+     {/*   <Cylinder 
+          segments={20}
+          dimHeight={0.6}
+          radiusBottom={0.35}
+          radiusTop={0}
+          wireframe
+          style={{
+            transform: [{ translateZ: -2}]
+          }}
+        />*/}
+
+        <Plane 
+          wireframe
+          dimWidth={0.5}
+          dimHeight={0.5}
+          style={{
+            transform: [{ translateZ: -2 }]
+          }}
+        />
+        <PointLight 
+          intensity = {1}
+          style={{
+            transform: [{ translate: [0, 700, 700]}]
+          }}
+        />  
       </View>
     )
   }
